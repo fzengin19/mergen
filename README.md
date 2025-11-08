@@ -1,3 +1,37 @@
+## Arka Planda Instagram İçerik Araştırma Akışı (TR)
+
+1) .env ayarları
+
+```
+GOOGLE_CSE_API_KEY=your-key
+GOOGLE_CSE_CX=your-cx
+IG_RESEARCH_MAX_QUERIES=3
+IG_RESEARCH_MAX_VISITS=2
+IG_RESEARCH_INTER_SEARCH_DELAY_MS=500
+IG_RESEARCH_INTER_VISIT_DELAY_MS=300
+IG_RESEARCH_LANG=tr
+IG_RESEARCH_GL=TR
+IG_RESEARCH_LR=lang_tr
+```
+
+2) Geliştirme
+
+```
+composer run dev
+```
+
+3) Kullanım (Dashboard üzerinden)
+- Dashboard’da formu gönderdiğinizde araştırma `queued` olur ve job arka planda çalışır.
+- Logları `storage/logs/laravel.log` dosyasından izleyebilirsiniz.
+
+4) Manuel Job Dispatch (örnek)
+
+```php
+use App\Jobs\RunInstagramContentResearchWorkflow;
+
+RunInstagramContentResearchWorkflow::dispatch($researchId);
+```
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

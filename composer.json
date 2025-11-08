@@ -12,7 +12,9 @@
         "php": "^8.2",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "neuron-core/neuron-ai": "^2.5"
+        "neuron-core/neuron-ai": "^2.5",
+        "spatie/browsershot": "^5.0",
+        "spatie/crawler": "^8.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -47,7 +49,7 @@
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:work --timeout=1800 --sleep=3 --tries=1\" \"npm run dev\" --names='server,queue,vite'"
         ],
         "test": [
             "@php artisan config:clear --ansi",
